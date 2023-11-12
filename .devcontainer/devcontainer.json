@@ -1,8 +1,21 @@
 // See https://containers.dev/implementors/json_reference/ for configuration reference
 {
-	"name": "Untitled Node.js project",
-	"build": {
-		"dockerfile": "Dockerfile"
-	},
-  "remoteUser": "node"
+  "name": "Node Microservice From Scratch",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "remoteUser": "node",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "GitHub.copilot",
+        "GitHub.copilot-chat",
+        "ms-azuretools.vscode-docker",
+        "streetsidesoftware.code-spell-checker",
+        "eamodio.gitlens",
+        "cschlosser.doxdocgen",
+        "dbaeumer.vscode-eslint"
+      ]
+    }
+  }
 }
