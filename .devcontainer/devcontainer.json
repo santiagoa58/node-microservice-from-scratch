@@ -14,7 +14,8 @@
         "streetsidesoftware.code-spell-checker",
         "eamodio.gitlens",
         "cschlosser.doxdocgen",
-        "dbaeumer.vscode-eslint"
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
       ]
     }
   }
