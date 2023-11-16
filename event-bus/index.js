@@ -1,9 +1,9 @@
 import axios from "axios";
-import bodyParser from "body-parser";
 import express from "express";
 
 const app = express();
-app.use(bodyParser.json());
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 app.post("/events", async (req, res) => {
   const event = req.body;
@@ -17,7 +17,7 @@ app.post("/events", async (req, res) => {
   } catch (error) {
     console.error("COMMENTS ERROR: ", error.message);
   }
-  // axios.post('http://localhost:4002/events', event);
+  axios.post("http://localhost:4002/events", event);
   res.send({ status: "OK" });
 });
 

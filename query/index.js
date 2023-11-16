@@ -1,20 +1,14 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const cors = require("cors");
+const postsRouter = require("./routes/posts");
 
 const app = express();
-app.use(bodyParser.json());
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
-const posts = {};
+app.use(postsRouter);
 
-const commentsByPost = {};
-
-app.get("/posts", (_req, res) => {
-  res.send(posts);
-});
-
-app.get("/posts/:id/comments", (req, res) => {
-  const comments = commentsByPost[req.params.id] || [];
-  res.send(comments);
+app.listen(4002, () => {
+  console.log("Listening on 4002");
 });
