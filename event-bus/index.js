@@ -17,7 +17,17 @@ app.post("/events", async (req, res) => {
   } catch (error) {
     console.error("COMMENTS ERROR: ", error.message);
   }
-  axios.post("http://localhost:4002/events", event);
+  try {
+    axios.post("http://localhost:4002/events", event); //query
+  } catch (error) {
+    console.error("QUERY ERROR: ", error.message);
+  }
+  try {
+    axios.post("http://localhost:4003/events", event); //moderation
+  } catch (error) {
+    console.error("MODERATION ERROR: ", error.message);
+  }
+
   res.send({ status: "OK" });
 });
 
