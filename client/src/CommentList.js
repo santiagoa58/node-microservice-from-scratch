@@ -13,7 +13,7 @@ const CommentList = ({ postId }) => {
       setComments(res.data);
     };
     fetchData();
-  }, []);
+  }, [postId]);
 
   const renderedComments = comments.map((comment) => {
     return <li key={comment.id}>{comment.content}</li>;
