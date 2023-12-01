@@ -32,5 +32,5 @@ app.post("/events", async (req, res) => {
 });
 
 app.listen(4005, () => {
-  console.log("Listening on Port 40005");
+  console.log("Listening on Port 4005");
 });

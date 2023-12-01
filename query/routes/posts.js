@@ -26,9 +26,20 @@ router.post("/events", (req, res) => {
       break;
     }
     case "CommentCreated": {
-      const { id, content, postId } = data;
+      const { postId, ...comment } = data;
       const post = posts[postId];
-      post.comments.push({ id, content });
+      post.comments.push(comment);
+      break;
+    }
+    case "CommentUpdated": {
+      const { postId, ...comment } = data;
+      console.log("comment: ", comment);
+      console.log("postId: ", postId);
+      const post = posts[postId];
+      console.log("post: ", post);
+      post.comments = post.comments.map((c) =>
+        c.id === comment.id ? comment : c
+      );
       break;
     }
   }
